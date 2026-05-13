@@ -1,0 +1,73 @@
+\pset footer off
+SET client_min_messages TO WARNING;
+\set ON_ERROR_STOP ON
+
+\set SRID :srid
+\set SRS_NAME :srs_name
+\set CHANGELOG :changelog
+\set SCHEMA_NAME citydb
+
+-- check if the PostGIS extension is available
+SELECT postgis_lib_version() AS postgis_version
+\gset
+
+-- check if the provided SRID is supported
+\echo
+\echo 'Checking spatial reference system for SRID ':SRID' ...'
+SET tmp.srid to :"srid";
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM spatial_ref_sys WHERE srid = current_setting('tmp.srid')::int) THEN
+    RAISE EXCEPTION 'The SRID % is not supported. To add it manually, see CRS definitions at https://spatialreference.org/.', current_setting('tmp.srid');
+  END IF;
+END
+$$;
+
+-- create schema
+CREATE SCHEMA :"SCHEMA_NAME";
+
+-- set search_path for this session
+SELECT current_setting('search_path') AS current_path
+\gset
+SET search_path TO :"SCHEMA_NAME", :current_path;
+
+-- create tables, sequences, constraints, indexes
+\echo
+\echo 'Setting up database schema of 3DCityDB instance ...'
+\ir schema/schema.sql
+\ir schema/spatial-objects.sql
+
+-- populate metadata tables
+\ir schema/namespace-instances.sql
+\ir schema/objectclass-instances.sql
+\ir schema/datatype-instances.sql
+
+-- populate codelist tables
+\ir schema/codelist-instances.sql
+\ir schema/codelist-entry-instances.sql
+
+-- create citydb_pkg schema
+\echo
+\echo 'Creating additional schema "citydb_pkg" ...'
+CREATE SCHEMA citydb_pkg;
+
+\ir citydb-pkg/util.sql
+\ir citydb-pkg/srs.sql
+\ir citydb-pkg/envelope.sql
+\ir citydb-pkg/delete.sql
+\ir citydb-pkg/schema-mapping.sql
+
+-- update search_path on database level
+ALTER DATABASE :"DBNAME" SET search_path TO :"SCHEMA_NAME", citydb_pkg, :current_path;
+
+-- create changelog extension
+\set schema_name :SCHEMA_NAME
+SELECT CASE
+  WHEN upper(:'CHANGELOG') = 'YES' THEN 'create-changelog.sql'
+  ELSE 'util/do-nothing.sql'
+END AS create_changelog_extension
+\gset
+\ir :create_changelog_extension;
+
+\echo
+\echo '3DCityDB instance successfully created.'

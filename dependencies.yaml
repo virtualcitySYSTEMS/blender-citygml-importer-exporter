@@ -1,0 +1,40 @@
+# =============================================================================
+# Dependency Manifest for CityGML Importer/Exporter Blender Add-on
+# =============================================================================
+# Edit versions here to trigger automatic re-download in CI pipeline.
+# The fetch_deps.py script reads this file to resolve all dependencies.
+
+tools:
+  3dcitydb-tool-v4:
+    version: "5.5.3"
+    url: "https://github.com/3dcitydb/importer-exporter/releases/download/v{version}/3DCityDB-Importer-Exporter-{version}.zip"
+    target_dir: "3dcitydb-tool-v4"
+    # ZIP contains: 3DCityDB-Importer-Exporter-5.5.3/lib/*.jar
+    # We need JARs flat in target_dir (same layout as currently checked in)
+    strip_components: 2
+    source_subpath: "lib"
+    preserve:
+      - "impexp_config.xml"
+
+  citydb-tool:
+    version: "1.3.0"
+    url: "https://github.com/3dcitydb/citydb-tool/releases/download/v{version}/citydb-tool-{version}.zip"
+    target_dir: "citydb-tool-{version}"
+    strip_components: 0
+
+python_modules:
+  - name: lxml
+    version: "6.0.2"
+  - name: pyproj
+    version: "3.7.2"
+
+python:
+  versions:
+    - "3.11"
+    - "3.13"
+    - "3.14"
+  platforms:
+    - win_amd64
+    - manylinux2014_x86_64
+    - macosx_11_0_x86_64
+    - macosx_11_0_arm64

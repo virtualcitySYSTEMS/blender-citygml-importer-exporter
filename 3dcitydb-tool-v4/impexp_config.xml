@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns:delete="http://www.virtualcitysystems.de/importer-exporter/config/delete-manager" xmlns:spshg="http://www.3dcitydb.org/importer-exporter/config/spshg" xmlns="http://www.3dcitydb.org/importer-exporter/config" xmlns:intgrate="http://www.virtualcitysystems.de/importer-exporter/config/integrate" xmlns:adv="http://www.virtualcitysystems.de/importer-exporter/config/adv">
+    <export useSimpleQuery="true">
+        <query/>
+        <simpleQuery version="2.0.0" targetSrs="UUID_4f8c10f2-3f82-40b6-9e59-7ad2c343fb27" useTypeNames="false" useFeatureVersionFilter="false" useAttributeFilter="false" useSQLFilter="false" useCountFilter="false" useLodFilter="false" useBboxFilter="false">
+        </simpleQuery>
+        <appearances>
+            <export>true</export>
+            <uniqueTextureFileNames>false</uniqueTextureFileNames>
+        </appearances>
+    </export>
+</project>

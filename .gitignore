@@ -1,0 +1,41 @@
+# =============================================================================
+# .gitignore - CityGML Importer/Exporter Blender Add-on
+# =============================================================================
+
+# --- Build artifacts ---
+build/
+*.zip
+
+# --- Local Blender test artifacts ---
+.tmp_blender_*/
+test_files/*/Appearance/
+
+# --- DevOps documentation (not part of add-on) ---
+devops-how-to-master/
+
+# --- Downloaded Python dependencies (fetched by CI) ---
+python_deps/
+
+# --- Python bytecode ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Version markers from fetch_deps.py ---
+.dep_version
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS files ---
+Thumbs.db
+.DS_Store
+
+# --- Presets ---
+presets/
+
+# --- Python Umgebung 3.13 ---
+.venv_off/
