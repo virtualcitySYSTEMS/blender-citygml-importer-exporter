@@ -33,6 +33,7 @@ def common_entries(root: str) -> list[str]:
     return [
         f"{root}/",
         f"{root}/__init__.py",
+        f"{root}/blender_manifest.toml",
         f"{root}/version.json",
         f"{root}/presets/",
         f"{root}/icons/vcs_logo.png",
@@ -79,6 +80,41 @@ def test_bundle_checker_rejects_missing_expected_tool(tmp_path):
     write_zip(
         tmp_path / f"{addon_name}-{version}_INTERN.zip",
         common_entries(f"{addon_name}_INTERN"),
+    )
+    write_zip(
+        tmp_path / f"{addon_name}-{version}_EXTERN.zip",
+        [
+            *common_entries(f"{addon_name}_EXTERN"),
+            f"{addon_name}_EXTERN/citydb-tool-1.3.0/citydb",
+        ],
+    )
+
+    result = bundle_checker.main(
+        [
+            "--addon-name",
+            addon_name,
+            "--version",
+            version,
+            "--directory",
+            str(tmp_path),
+        ]
+    )
+
+    assert result == 1
+
+
+def test_bundle_checker_rejects_missing_blender_manifest(tmp_path):
+    addon_name = "citygml-importer-exporter"
+    version = "1.2.3"
+    write_zip(
+        tmp_path / f"{addon_name}-{version}_INTERN.zip",
+        [
+            f"{addon_name}_INTERN/",
+            f"{addon_name}_INTERN/__init__.py",
+            f"{addon_name}_INTERN/version.json",
+            f"{addon_name}_INTERN/presets/",
+            f"{addon_name}_INTERN/vcdb-tool-1.1.4/vcdb",
+        ],
     )
     write_zip(
         tmp_path / f"{addon_name}-{version}_EXTERN.zip",

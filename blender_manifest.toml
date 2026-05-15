@@ -1,0 +1,44 @@
+schema_version = "1.0.0"
+
+id = "citygml_importer_exporter"
+version = "0.1.1"
+name = "VCS 3DCityDB Importer/Exporter"
+tagline = "Import and export CityGML files and 3DCityDB data"
+maintainer = "Virtual City Systems - Oliver Foerster"
+type = "add-on"
+
+website = "https://vc.systems/en/"
+tags = ["Import-Export"]
+blender_version_min = "4.2.0"
+
+license = [
+  "SPDX:MIT",
+]
+copyright = [
+  "2026 Virtual City Systems",
+]
+
+[permissions]
+files = "Import and export CityGML files and load bundled tools"
+network = "Connect to 3DCityDB instances and Docker services"
+
+[build]
+paths_exclude_pattern = [
+  "__pycache__/",
+  "/.git/",
+  "/.vscode/",
+  "/.cache/",
+  "/build/",
+  "/.tmp_blender_*/",
+  "/scripts/",
+  "/devops-how-to-master/",
+  "/test_files/",
+  "/Tutorial_Gifs/",
+  "/.gitignore",
+  "/.gitlab-ci.yml",
+  "/dependencies.yaml",
+  "/gitlab-pipeline-log.txt",
+  "/*.pyc",
+  "/*.pyo",
+  "*.zip",
+]

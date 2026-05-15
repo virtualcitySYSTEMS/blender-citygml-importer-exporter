@@ -51,6 +51,8 @@ def _validate_common(names: list[str], label: str) -> list[str]:
 
     if not _contains_file(names, "__init__.py"):
         errors.append(f"{label}: missing __init__.py")
+    if not _contains_file(names, "blender_manifest.toml"):
+        errors.append(f"{label}: missing blender_manifest.toml")
     if not _contains_file(names, "version.json"):
         errors.append(f"{label}: missing version.json")
     if not _contains_dir(names, "presets"):

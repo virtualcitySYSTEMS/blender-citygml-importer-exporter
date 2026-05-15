@@ -11,7 +11,7 @@ ensure_bundled_site_packages(os.path.dirname(__file__))
 bl_info = {
     "name": "VCS 3DCityDB Importer/Exporter",
     "author": "Virtual City Systems - Oliver Förster",
-    "version": (0, 1, 0),
+    "version": (0, 1, 1),
     "blender": (4, 0, 0),
     "location": "File > Import/Export; Sidebar > CityGML",
     "description": "Import/Export CityGML 2.0/3. Files and 3DCityDB via citydb-tool",

@@ -79,6 +79,11 @@ Entwickelt von [Virtual City Systems](https://vc.systems).
 
 Das Add-on wird als ZIP-Archiv bereitgestellt.
 
+Für Blender 4.2 und neuer bitte ein Release-ZIP verwenden, das
+`blender_manifest.toml` enthält (zum Beispiel das generierte `*_INTERN.zip`
+oder `*_EXTERN.zip`). Kein beliebiges Source-Code-ZIP installieren, dessen
+entpackter Ordnername eine Versionsnummer enthält.
+
 <a id="de-in-blender-installieren"></a>
 
 ### 2. In Blender installieren
@@ -87,6 +92,10 @@ Das Add-on wird als ZIP-Archiv bereitgestellt.
 2. Oben rechts auf **Installieren…** klicken
 3. Die heruntergeladene `.zip`-Datei auswählen
 4. Das Add-on **„VCS 3DCityDB Importer/Exporter"** in der Liste aktivieren (Häkchen setzen)
+
+Blender 4.2+ / 5 liest die stabile Extension-ID `citygml_importer_exporter`
+aus `blender_manifest.toml`. Bei Legacy-Installationen ohne dieses Manifest
+muss der entpackte Add-on-Ordner exakt `citygml-importer-exporter` heißen.
 
 > **Hinweis:** Das Add-on wird nach `%APPDATA%\Blender Foundation\Blender\<version>\scripts\addons\` (Windows) bzw. `~/.config/blender/<version>/scripts/addons/` (Linux) entpackt.
 

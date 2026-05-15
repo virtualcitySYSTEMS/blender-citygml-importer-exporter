@@ -19,8 +19,13 @@ from pathlib import Path
 
 INIT_FILE = Path(__file__).parent.parent / '__init__.py'
 VERSION_JSON = Path(__file__).parent.parent / 'version.json'
+MANIFEST_FILE = Path(__file__).parent.parent / 'blender_manifest.toml'
 VERSION_PATTERN = re.compile(
     r'("version"\s*:\s*\()(\d+),\s*(\d+),\s*(\d+)(\))'
+)
+MANIFEST_VERSION_PATTERN = re.compile(
+    r'(^version\s*=\s*")([^"]+)(")',
+    re.MULTILINE,
 )
 
 
@@ -38,21 +43,37 @@ def get_current_version():
 
 
 def set_version(major, minor, patch):
-    """Write new version to both version.json and __init__.py."""
-    # Update version.json
-    VERSION_JSON.write_text(
-        json.dumps({"major": major, "minor": minor, "patch": patch}, indent=2) + '\n',
-        encoding='utf-8'
-    )
-    # Update __init__.py
+    """Write new version to version.json, __init__.py, and Blender manifest."""
+    version = f"{major}.{minor}.{patch}"
     text = INIT_FILE.read_text(encoding='utf-8')
-    new_text = VERSION_PATTERN.sub(
+    new_text, init_replacements = VERSION_PATTERN.subn(
         f'\\g<1>{major}, {minor}, {patch})',
         text,
         count=1
     )
+    if init_replacements != 1:
+        print("ERROR: Could not find version tuple in __init__.py")
+        sys.exit(1)
+
+    manifest_text = None
+    if MANIFEST_FILE.exists():
+        manifest_text, manifest_replacements = MANIFEST_VERSION_PATTERN.subn(
+            f'\\g<1>{version}\\g<3>',
+            MANIFEST_FILE.read_text(encoding='utf-8'),
+            count=1,
+        )
+        if manifest_replacements != 1:
+            print("ERROR: Could not find version field in blender_manifest.toml")
+            sys.exit(1)
+
+    VERSION_JSON.write_text(
+        json.dumps({"major": major, "minor": minor, "patch": patch}, indent=2) + '\n',
+        encoding='utf-8'
+    )
     INIT_FILE.write_text(new_text, encoding='utf-8')
-    print(f"Version set to {major}.{minor}.{patch}")
+    if manifest_text is not None:
+        MANIFEST_FILE.write_text(manifest_text, encoding='utf-8')
+    print(f"Version set to {version}")
 
 
 def detect_bump_type():

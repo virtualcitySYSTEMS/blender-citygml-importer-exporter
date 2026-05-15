@@ -220,7 +220,7 @@ version:bump:
       python scripts/version_bump.py
       VERSION=$(python -c "from scripts.version_bump import get_current_version; print(get_current_version())" 2>/dev/null || echo "unknown")
       echo "VERSION=${VERSION}" >> build.env
-      git add __init__.py version.json
+      git add __init__.py version.json blender_manifest.toml
       git commit -m "chore: bump version to ${VERSION} [skip ci]" || echo "No version change"
       git push origin "$CI_COMMIT_BRANCH" || echo "Push skipped"
   artifacts:
