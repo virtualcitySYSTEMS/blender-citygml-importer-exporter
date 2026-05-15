@@ -4,7 +4,7 @@ Durchsucht test_files/ nach Unterordnern mit .gml-Dateien und importiert jede ei
 Jede Datei wird in einer frischen Blender-Szene importiert.
 
 Aufruf:
-  blender --background --addons citygml-importer-exporter --python scripts/tests/test_import.py -- --dir test_files
+  blender --background --addons citygml_importer_exporter --python scripts/tests/test_import.py -- --dir test_files
 """
 import argparse
 import os
@@ -12,7 +12,7 @@ import sys
 
 import bpy
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 
 
 def _extract_blender_args() -> list[str]:

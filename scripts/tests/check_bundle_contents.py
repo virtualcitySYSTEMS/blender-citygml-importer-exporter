@@ -2,7 +2,7 @@
 Validate generated add-on ZIP bundles.
 
 Usage:
-  python scripts/tests/check_bundle_contents.py --addon-name citygml-importer-exporter --version 1.2.3
+  python scripts/tests/check_bundle_contents.py --addon-name citygml_importer_exporter --version 1.2.3
 """
 import argparse
 import sys

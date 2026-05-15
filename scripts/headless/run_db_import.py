@@ -4,7 +4,7 @@ import sys
 import bpy
 
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 HEADLESS_PREFS_KEY = "cgml3_headless_prefs"
 LOD_MODES = ("NONE", "or", "and", "minimum", "maximum")
 VALIDITY_MODES = ("NONE", "latest", "at", "between", "terminated", "terminated_at", "all")

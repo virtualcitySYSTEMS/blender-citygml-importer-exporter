@@ -32,7 +32,7 @@ stages:
   - deploy
 
 variables:
-  ADDON_NAME: "citygml-importer-exporter"
+  ADDON_NAME: "citygml_importer_exporter"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   GIT_STRATEGY: fetch
 

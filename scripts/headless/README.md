@@ -2,7 +2,7 @@
 
 Dieser Ordner enthaelt Python-Launcher fuer den headless Betrieb des Add-ons mit Blender im Background-Modus.
 
-Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-importer-exporter/HEADLESS.md`.
+Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml_importer_exporter/HEADLESS.md`.
 
 ## Verfuegbare Skripte
 
@@ -20,7 +20,7 @@ Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-i
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
+  --addons "citygml_importer_exporter" `
   --python "C:\...\scripts\headless\headless_cli.py" `
   -- <subcommand> [optionen]
 ```
@@ -35,8 +35,8 @@ Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-i
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- import "C:\daten\modell.gml" "C:\daten\modell.blend"
 ```
 
@@ -46,8 +46,8 @@ Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-i
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- export "C:\daten\modell.blend" "C:\daten\export.gml" --citygml-version 3.0 --srs-name EPSG:25832
 ```
 
@@ -57,8 +57,8 @@ Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-i
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- db-import "C:\daten\db_import.blend" --db-host localhost --db-port 5432 --db-name citydb --db-user postgres --db-pass secret --bbox "24487802,6820388.5,24488468,6820804.5,25832" --no-appearances
 ```
 
@@ -68,8 +68,8 @@ Eine ausfuehrlichere Dokumentation mit Parametererklaerungen steht in `citygml-i
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- db-export "C:\daten\modell.blend" --db-host localhost --db-port 5432 --db-name citydb --db-user postgres --db-pass secret --with-appearances --overwrite-existing
 ```
 
@@ -91,8 +91,8 @@ Globale Hilfe des Wrappers:
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- --help
 ```
 
@@ -102,8 +102,8 @@ Hilfe fuer ein Subcommand:
 & "C:\Program Files\Blender Foundation\Blender 5.0\blender.exe" `
   --background `
   --factory-startup `
-  --addons "citygml-importer-exporter" `
-  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml-importer-exporter\scripts\headless\headless_cli.py" `
+  --addons "citygml_importer_exporter" `
+  --python "C:\Users\ofoerster\AppData\Roaming\Blender Foundation\Blender\5.0\scripts\addons\citygml_importer_exporter\scripts\headless\headless_cli.py" `
   -- export --help
 ```
 

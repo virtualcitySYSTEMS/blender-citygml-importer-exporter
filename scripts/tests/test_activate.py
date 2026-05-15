@@ -8,7 +8,7 @@ Aufruf:
 import sys
 import bpy
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 
 
 def main():

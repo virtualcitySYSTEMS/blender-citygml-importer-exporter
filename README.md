@@ -95,7 +95,7 @@ version number.
 
 Blender 4.2+ / 5 reads the stable extension ID `citygml_importer_exporter`
 from `blender_manifest.toml`. For legacy installations without this manifest,
-the extracted add-on folder must be named exactly `citygml-importer-exporter`.
+the extracted add-on folder must be named exactly `citygml_importer_exporter`.
 
 > **Note:** The add-on is extracted to `%APPDATA%\Blender Foundation\Blender\<version>\scripts\addons\` (Windows) or `~/.config/blender/<version>/scripts/addons/` (Linux).
 
@@ -374,7 +374,7 @@ This makes large models easier to navigate while textures and materials are only
 The add-on can be run in the background without a GUI:
 
 ```bash
-blender --background --factory-startup --addons citygml-importer-exporter \
+blender --background --factory-startup --addons citygml_importer_exporter \
   --python scripts/headless/headless_cli.py -- import --input file.gml --output result.blend
 ```
 
@@ -412,7 +412,7 @@ The order is flexible – you can import either the orthophoto or the CityGML ob
 ## Projektstruktur
 
 ```
-citygml-importer-exporter/
+citygml_importer_exporter/
 ├── __init__.py              # Add-on Registrierung, Operatoren, UI
 ├── bundled_deps.py          # Python-Abhängigkeiten (lxml, pyproj)
 ├── io/                      # CityGML 3.0 Reader/Writer

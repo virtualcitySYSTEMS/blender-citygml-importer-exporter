@@ -48,7 +48,7 @@ echo.
 
 REM --- Test 2: Import alle Feature-Typen ---
 echo [2/3] Test: Import alle Feature-Typen...
-"%BLENDER%" --background --addons citygml-importer-exporter --python "%SCRIPT_DIR%test_import.py" -- --dir "%PROJECT_DIR%\test_files" 2>&1 | findstr /C:"[TEST]" /C:"PASS" /C:"FAIL"
+"%BLENDER%" --background --addons citygml_importer_exporter --python "%SCRIPT_DIR%test_import.py" -- --dir "%PROJECT_DIR%\test_files" 2>&1 | findstr /C:"[TEST]" /C:"PASS" /C:"FAIL"
 if !ERRORLEVEL! equ 0 (
     set /a PASS+=1
 ) else (
@@ -59,7 +59,7 @@ echo.
 
 REM --- Test 3: Export alle Feature-Typen ---
 echo [3/3] Test: Export alle Feature-Typen...
-"%BLENDER%" --background --addons citygml-importer-exporter --python "%SCRIPT_DIR%test_export.py" -- --dir "%PROJECT_DIR%\test_files" 2>&1 | findstr /C:"[TEST]" /C:"PASS" /C:"FAIL"
+"%BLENDER%" --background --addons citygml_importer_exporter --python "%SCRIPT_DIR%test_export.py" -- --dir "%PROJECT_DIR%\test_files" 2>&1 | findstr /C:"[TEST]" /C:"PASS" /C:"FAIL"
 if !ERRORLEVEL! equ 0 (
     set /a PASS+=1
 ) else (

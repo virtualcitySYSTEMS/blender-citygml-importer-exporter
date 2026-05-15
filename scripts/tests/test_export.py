@@ -6,7 +6,7 @@ and checks the exported files for XML well-formedness, expected CityGML version
 markers, cityObjectMember content, and duplicate gml:id values.
 
 Usage:
-  blender --background --addons citygml-importer-exporter --python scripts/tests/test_export.py -- --dir test_files
+  blender --background --addons citygml_importer_exporter --python scripts/tests/test_export.py -- --dir test_files
 """
 import argparse
 import os
@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 import bpy
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 XSI_SCHEMA_LOCATION = "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation"
 CITYGML_VERSION_MARKERS = {
     "2.0": (

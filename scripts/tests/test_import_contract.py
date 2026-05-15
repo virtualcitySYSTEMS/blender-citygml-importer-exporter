@@ -2,7 +2,7 @@
 Contract tests for representative CityGML imports.
 
 Usage:
-  blender --background --addons citygml-importer-exporter --python scripts/tests/test_import_contract.py -- --dir test_files
+  blender --background --addons citygml_importer_exporter --python scripts/tests/test_import_contract.py -- --dir test_files
 """
 import argparse
 import os
@@ -11,7 +11,7 @@ from dataclasses import dataclass
 
 import bpy
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 
 
 @dataclass(frozen=True)

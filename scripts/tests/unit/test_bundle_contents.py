@@ -40,7 +40,7 @@ def common_entries(root: str) -> list[str]:
     ]
 
 
-def write_valid_bundles(tmp_path: Path, addon_name="citygml-importer-exporter", version="1.2.3"):
+def write_valid_bundles(tmp_path: Path, addon_name="citygml_importer_exporter", version="1.2.3"):
     write_zip(
         tmp_path / f"{addon_name}-{version}_INTERN.zip",
         [
@@ -63,7 +63,7 @@ def test_bundle_checker_accepts_expected_intern_and_extern_archives(tmp_path):
     result = bundle_checker.main(
         [
             "--addon-name",
-            "citygml-importer-exporter",
+            "citygml_importer_exporter",
             "--version",
             "1.2.3",
             "--directory",
@@ -75,7 +75,7 @@ def test_bundle_checker_accepts_expected_intern_and_extern_archives(tmp_path):
 
 
 def test_bundle_checker_rejects_missing_expected_tool(tmp_path):
-    addon_name = "citygml-importer-exporter"
+    addon_name = "citygml_importer_exporter"
     version = "1.2.3"
     write_zip(
         tmp_path / f"{addon_name}-{version}_INTERN.zip",
@@ -104,7 +104,7 @@ def test_bundle_checker_rejects_missing_expected_tool(tmp_path):
 
 
 def test_bundle_checker_rejects_missing_blender_manifest(tmp_path):
-    addon_name = "citygml-importer-exporter"
+    addon_name = "citygml_importer_exporter"
     version = "1.2.3"
     write_zip(
         tmp_path / f"{addon_name}-{version}_INTERN.zip",
@@ -139,7 +139,7 @@ def test_bundle_checker_rejects_missing_blender_manifest(tmp_path):
 
 
 def test_bundle_checker_rejects_forbidden_files_and_preset_json(tmp_path):
-    addon_name = "citygml-importer-exporter"
+    addon_name = "citygml_importer_exporter"
     version = "1.2.3"
     write_zip(
         tmp_path / f"{addon_name}-{version}_INTERN.zip",

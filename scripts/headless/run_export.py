@@ -4,7 +4,7 @@ import sys
 import bpy
 
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 SURFACE_TYPES = ("WallSurface", "RoofSurface", "GroundSurface", "ClosureSurface")
 STREAMING_MODES = ("AUTO", "FORCE_STREAMING", "FORCE_DOM")
 CITYGML_VERSIONS = ("2.0", "3.0")

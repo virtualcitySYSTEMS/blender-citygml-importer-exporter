@@ -20,7 +20,7 @@ def _print_help() -> None:
     print("Headless CLI wrapper for the CityGML Blender add-on")
     print()
     print("Usage:")
-    print("  blender --background --factory-startup --addons citygml-importer-exporter --python headless_cli.py -- <command> [args]")
+    print("  blender --background --factory-startup --addons citygml_importer_exporter --python headless_cli.py -- <command> [args]")
     print()
     print("Commands:")
     print("  import      CityGML file -> .blend")

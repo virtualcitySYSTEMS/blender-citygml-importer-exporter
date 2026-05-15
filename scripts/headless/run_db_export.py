@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import bpy
 
 
-ADDON_MODULE = "citygml-importer-exporter"
+ADDON_MODULE = "citygml_importer_exporter"
 HEADLESS_PREFS_KEY = "cgml3_headless_prefs"
 CITYGML_VERSIONS = ("2.0", "3.0")
 STREAMING_MODES = ("AUTO", "FORCE_STREAMING", "FORCE_DOM")
